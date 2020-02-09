@@ -210,6 +210,10 @@ body,html{
     background:url(../img/bg_noget.png) center no-repeat;
     background-size: 100%;
 }
+.weilingqu.today{
+    background:url(../img/bg_today.png) center no-repeat;
+    background-size: 100%;
+}
 .weilingqu h3{
     font-weight: bold;
     font-size:0.12rem;
