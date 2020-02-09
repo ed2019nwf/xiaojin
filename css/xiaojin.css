@@ -257,7 +257,7 @@ body,html{
     font-size:0.11rem;
     color:#fff;
     position: absolute;
-    top:32px;
+    top:80px;
     left:11px;
 }
 
@@ -281,6 +281,10 @@ body,html{
     background-size: 100%;
     position: relative;
     text-align: center;
+}
+.money_item.today{
+    background: url(../img/sign_yes.png) center bottom no-repeat;
+    background-size: 100%;
 }
 .money_item1{
     width:0.5rem;
@@ -307,7 +311,7 @@ body,html{
     text-align: center;
 }
 
-.money_date{
+.money_item .money_date{
     width:0.53rem;
     height:0.18rem;
     background: #e9ebed;
@@ -318,6 +322,10 @@ body,html{
     bottom:-58px;
     left:0;
 }
+.money_item.today .money_date{
+    background: #fbe2ad;
+    color:#b2201b;
+}
 .money_date1{
     width:0.53rem;
     height:0.18rem;
@@ -325,7 +333,7 @@ body,html{
     background-size: 100%;
     padding:0;
     position: absolute;
-    bottom:-25px;
+    bottom:-57px;
     left:-1px;
 }
 .money_date1 b{

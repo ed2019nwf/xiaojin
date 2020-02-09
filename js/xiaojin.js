@@ -239,8 +239,28 @@
     })
   }
 
-  $(function () {
-    whatapp();
-    eleHandle();
-    getJson();
-  });
+//   $(function () {
+//     whatapp();
+//     eleHandle();
+//     getJson();
+//   });
+
+//屏幕适应
+(function (win, doc) {
+    if (!win.addEventListener) return;
+
+    function setFont() {
+      var html = document.documentElement;
+      var k = 750;
+      //html.style.fontSize = html.clientWidth / k * 100 + "px!important";
+      html.style.cssText = 'font-size:' + html.clientWidth / k * 200 + "px!important";
+    }
+
+    setFont();
+    setTimeout(function () {
+      setFont();
+    }, 300);
+    doc.addEventListener('DOMContentLoaded', setFont, false);
+    win.addEventListener('resize', setFont, false);
+    win.addEventListener('load', setFont, false);
+  })(window, document);

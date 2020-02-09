@@ -12,32 +12,60 @@
           <a href="javascript:;" class="active_detail">活动详情</a>
           <div class="card_tips">
             <p>您已连续</p>
-            <p>签到<b class="day"></b>天</p>
+            <p>签到<b class="day">{{list.length}}</b>天</p>
           </div>
-      
         </div>
-      
         <div class="tabbox">
           <ul class="tabhd">
             <li class="on">
               <h3>第一周</h3>
-              <p>12月30号~1月5号</p>
+              <p>02月17号~02月23号</p>
             </li>
             <li>
               <h3>第二周</h3>
-              <p>1月6号~1月12号</p>
+              <p>02月24号~03月01号</p>
             </li>
           </ul>
           <div class="tabbd">
             <div class="tabbd_wrap">
               <div class="h10"></div>
-              <div class="bet_amount">今天还需投注<b class="need_amount"></b>就可以签到</div>
+              <div class="bet_amount">今天还需投注<b class="need_amount">3888</b>就可以签到</div>
               <div class="h10"></div>
-              <div class="money_list1">
-              </div>
-              <div class="h10"></div>
-              <div class="money_list2">
-              </div>
+
+              <template v-if="list.length==0" >
+                  <div class="money_list1">
+                    <!-- 未领取 -->
+                    <!-- 今日 -->
+                    <div class="money_item today"><span class="money_date">今日</span></div>
+                    <div class="money_item"><span class="money_date">2天</span></div>
+                    <!-- 可领取 -->
+                    <div class="money_item1">
+                      <div class="onlytime">
+                            <b>17:20:30</b><span>后失效</span>
+                      </div>
+                      <span class="money_get" itemno="">领取礼金</span>
+                    </div>
+                    <!-- 已领取 -->
+                    <div class="money_item2"><span class="money_date1"><b>02/03</b></span></div>
+                    <!-- 领取过期 -->
+                    <div class="money_item1 guoqi">
+                      <span class="money_date1"><b>02/03</b></span>
+                    </div>
+                  </div>
+                  <div class="h10"></div>
+                  <div class="money_list2">
+                    <!-- 可领取 -->
+                    <!-- <div class="kelingqu"><p class="sixday"><b>17:20:30</b><span>后失效</span></p><span class="money_get">领取大礼</span></div> -->
+                    <!-- 已领取 -->
+                    <!-- <div class="kelingqu"><p>大礼包已领取</p><span class="money_date1"><b>02/03</b></span></div> -->
+                    <!-- 领取过期-->
+                    <div class="kelingqu guoqi"><span class="money_date1"><b>02/03</b></span></div>
+                    <!-- 未领取 -->
+                    <!-- <div class="weilingqu"><h3>连续签到6天</h3><p><b>18</b>元大礼包</p></div> -->
+                    <div class="weilingqu"><h3>连续签到7天</h3><p><b>18</b>元大礼包</p></div>
+                  </div>
+              </template>
+
               <div class="h10"></div>
               <a class="xiaojin_go" href="javascript:;">立刻进入小金体育</a>
             </div>
@@ -58,28 +86,55 @@
         </div>
       </div>
 </body>
-
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script>
+new Vue({
+  el:'.xiaojin',
+  data:{
+    // flag:1 =>已签到   flag:2 =>已领取
+    // statDate 签到日期
+    // exirationTime1 领取奖励的截至时间
+    list:[
+            // {
+            //     activityId:"E0320200114342Q01",
+            //     productId:"E03",
+            //     loginName:"vdowen1",
+            //     flag:1,
+            //     amount:8,
+            //     totalBetAmount:2606428.74,
+            //     totalValidBetAmount:2606428.74,
+            //     totalRemainAmount:2606428.74,
+            //     statDate:"02/01",
+            //     exirationTime:1580983200,
+            //     exirationTime1:"2020-02-07 18:00:00",
+            //     itemNo:1
+            // },
+            // {
+            //     activityId:"E0320200114342Q01",
+            //     productId:"E03",
+            //     loginName:"vdowen1",
+            //     flag:1,
+            //     amount:8,
+            //     totalBetAmount:2606428.74,
+            //     totalValidBetAmount:2606428.74,
+            //     totalRemainAmount:2606428.74,
+            //     statDate:"02/02",
+            //     exirationTime:1580810400,
+            //     exirationTime1:"2020-02-07 18:00:00",
+            //     itemNo:2
+            // }
+        ]
+  },
+  mounted(){
+      this.getjson()
+  },
+  methods:{
+      getjson:function(){
+          
+      }
+  }
+})
 
-//屏幕适应
-(function (win, doc) {
-    if (!win.addEventListener) return;
-
-    function setFont() {
-      var html = document.documentElement;
-      var k = 750;
-      //html.style.fontSize = html.clientWidth / k * 100 + "px!important";
-      html.style.cssText = 'font-size:' + html.clientWidth / k * 200 + "px!important";
-    }
-
-    setFont();
-    setTimeout(function () {
-      setFont();
-    }, 300);
-    doc.addEventListener('DOMContentLoaded', setFont, false);
-    win.addEventListener('resize', setFont, false);
-    win.addEventListener('load', setFont, false);
-  })(window, document);
 
 </script>
 
